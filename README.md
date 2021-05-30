@@ -13,3 +13,16 @@ The aim of this project is to enable automatic contactless, speedy screening for
 - Motor to rotate barrier 
 
 This project was implemented as a simulation using Proteus software. Proteus offers a great range for the peripherals that can be added. The addition of peripherals allows integration of a variety of modules and functionalities.
+
+## Objective:
+The main objective of the project is to create an automated screening system that checks for the user’s temperature and mask. The most important aspect of COVID-19 Screening is that the Person does not transmit any kind of germs or virus. Irrespective of these conditions we dispense sanitiser to the person trying to enter the premises. This ensures a sanitary check and also creates awareness amongst people. 
+
+## Motivation:
+The increasing COVID cases have had a huge impact on the lives of people. One of the prominent reasons why COVID-19 keeps spreading is that it is invisible to the human eye. The only way to check the presence is using certain indicators like body temperature and possibility of spread. Since these conditions can be checked using the current technologies available to use, this served as a huge motivation for us. Also, this system can be used in laboratories and factories once the COVID-19 virus is diminished. Finding this scalability was another reason for us to continue in this direction.
+
+## Challenges
+- The first problem to design and deploy the project was the online mode of communication. Due to the pandemic itself, we could not meet and discuss the plan of action in person.The solution to the above problem was to use a software like proteus. Since it allows addition of peripherals inside the simulation, we could implement the design and workflow without connecting hardware equipment.
+- This in turn had another challenge associated with it. The software requires a manual click to change the inputs of the peripherals. The value of the inputs cannot be changed in real time since there will always be a time delay in creating the optimal change in values.
+- The mask detection module cannot be implemented on proteus due to camera capture restrictions. Since the camera attached as a peripheral cannot capture, the image detection program doesn’t have any input. The solution to this is simple. The mask detection program is a python file. In the actual hardware implementation, the raspberry pi board would use python files as programs and an actual camera attached to it as a peripheral.
+- One of the most tedious tasks was to find documentation related to raspberry pi simulation on proteus. There is very little information online. Even if we found material, it was very specific to the implementation shown in the example.
+
