@@ -26,3 +26,53 @@ The increasing COVID cases have had a huge impact on the lives of people. One of
 - The mask detection module cannot be implemented on proteus due to camera capture restrictions. Since the camera attached as a peripheral cannot capture, the image detection program doesn’t have any input. The solution to this is simple. The mask detection program is a python file. In the actual hardware implementation, the raspberry pi board would use python files as programs and an actual camera attached to it as a peripheral.
 - One of the most tedious tasks was to find documentation related to raspberry pi simulation on proteus. There is very little information online. Even if we found material, it was very specific to the implementation shown in the example.
 
+## Engineering design 
+
+### For the design of the model we have designed the following modules:
+
+- Sanitiser Dispenser
+- Temperature Check
+- Mask Detection
+- Automated entry gate
+
+
+
+### To simulate the system on Proteus, we have made use of the software simulations of the following hardware components:
+
+- PIR sensor to detect the presence of a hand
+- Sanititser pump
+- LM35 Temperature sensor to measure the temperature of a person
+- PiCam module to detect mask
+- Motor to rotate barrier 
+
+### The working of the system happens in the following way:
+
+User places hand below the sanitiser dispenser, which also has a temperature sensor(LM35) to measure the temperature. The presence of a hand is detected by a PIR sensor.
+After a hand is detected by the PIR sensor, the sanitiser is dispensed using a pump and the temperature is measured.
+If the temperature value is within the allowable range, then the mask detection module will be signalled. If the temperature is not in the allowable range, then a warning message will be displayed showing that the temperature is out of the range.
+This signal switches on the PiCam, which then checks for the presence of a mask.
+If a mask is detected, the motor of the entry gate will be enabled which will allow the user to enter the premises.
+If no mask is detected or mask is worn incorrectly, then a warning message will be displayed showing that mask is not worn.
+
+### About each module:
+
+### Sanitiser Dispenser and Temperature Check Modules
+
+These two modules are linked together using the PIR sensor which detects the presence of a hand. If a hand is detected, then these two modules will be enabled which leads to disposal of sanitiser by the sanitiser pump and measuring of temperature by the LM35 sensor.
+
+The dispenser is implemented using a DC pump to pump the liquid out of the container holding the sanitiser.
+
+The automated temperature checking module is implemented in order to minimize contact and human interaction.
+
+### Mask Detection Module
+
+The mask detection module will be enabled if the user’s temperature is within the threshold limits.
+The mask detector module is implemented using a PiCam module and a machine learning model which is trained using a mask detection dataset, which is downloaded from the Internet. The dataset contains various images of people wearing and not wearing masks and people wearing masks but in the wrong manner. Using these images, the model will be trained in order to correctly identify a person wearing a mask in the right manner.
+For training the model, we used OpenCV library to convert the live stream into frames, so that the model can perform the testing. 
+If the visitor is wearing the mask properly, he/she will be allowed to proceed further.  
+
+### Automated Entry Gate Module
+
+If the visitor satisfies all the conditions that are set by the system, then the entry gate will automatically be opened, which will allow the visitor to enter the campus. This entry gate is implemented using a servo motor which functions based on the signal it receives. If it receives a positive signal, then the gate is opened, else it remains closed.
+
+
