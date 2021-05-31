@@ -134,3 +134,13 @@ D6- pin 12
 D7- pin 13
 RS - pin 15
 E - pin 16 
+
+## Conclusion and Future Work 
+
+After the implementation of our system, we were able to successfully implement what we have planned for in the beginning. This system will be a very useful one in large campuses such as our college. It reduces human effort vastly and also can reduce fights between security guards and the users as systems are very strict and will not allow entry unless all conditions are strictly satisfied. The system is fully working as far as we have implemented it. 
+
+In the future we can improve our project on the following grounds:
+
+Interface the PiCam module as well in the Proteus simulation
+Implementation of the actual hardware system can be done after the pandemic 
+If we perform the hardware implementation, we can use an ultrasonic sensor instead of PIR sensor to detect the presence of a hand as it would give better results. 
