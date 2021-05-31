@@ -76,3 +76,61 @@ If the visitor is wearing the mask properly, he/she will be allowed to proceed f
 If the visitor satisfies all the conditions that are set by the system, then the entry gate will automatically be opened, which will allow the visitor to enter the campus. This entry gate is implemented using a servo motor which functions based on the signal it receives. If it receives a positive signal, then the gate is opened, else it remains closed.
 
 
+## Connections:
+
+### Sanitiser pump module:
+
+L293D motor driver- interfaced with raspberry pi 
+
+INV1 - pin18
+INV2 - pin 22
+VSS,VS ,EN1 - 12v supply 
+OUT1,OUT2 - two ends of motor 
+
+Motor - one end to OUT1 and other to OUT2 of motor driver 
+
+### Barrier opening:
+
+L293D motor driver- interfaced with raspberry pi 
+
+INV1 - pin 32
+INV2 - pin 33
+VSS,VS ,EN1 - 12v supply 
+OUT1,OUT2 - two ends of motor 
+
+Motor - one end to OUT1 and other to OUT2 of motor driver 
+
+### Temperature check module:
+
+LM35- interfaced with ADC 
+
+VCC  - 5v
+OUT - ADC’s CH0
+GND- gnd pin 
+
+ADC MP3208 - interfaced with Raspberry pi
+
+CLK - CLK
+DIN - MOSI
+DOUT - MISO
+CS - CS
+VREF - 3.3v
+AGND - GND  
+
+### Hand presence check - PIR SENSOR - interfaced with raspberry pi 
+
+OUT - pin 29
+Vcc - 5v
+GND - gnd
+Test pin - High granularity Interactive potentiometer 
+
+LCD - interfaced with raspberry pi 
+
+RW - GND
+VDD - GND 
+D4 - pin 7
+D5- pin 11
+D6- pin 12
+D7- pin 13
+RS - pin 15
+E - pin 16 
